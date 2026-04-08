@@ -1,4 +1,4 @@
-import ReviewPageClient from '@aa/components/review/ReviewPageClient'
+import ReviewPageDynamic from '@aa/components/review/ReviewPageDynamic'
 
 export function generateStaticParams() {
   return Array.from({ length: 30 }, (_, i) => ({
@@ -7,5 +7,5 @@ export function generateStaticParams() {
 }
 
 export default function ReviewPage() {
-  return <ReviewPageClient />
+  return <ReviewPageDynamic />
 }
