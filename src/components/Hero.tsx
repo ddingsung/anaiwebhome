@@ -8,18 +8,24 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Background — replace div below with <img> for real factory photo */}
+      {/* Background gradient from Figma */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(142.69%_142.69%_at_50%_50%,rgba(0,0,0,0.88)_0%,rgba(0,31,63,0.88)_100%)]" />
-        {/* Subtle grid pattern for depth */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0"
           style={{
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
+            background: "linear-gradient(64.78deg, #17183A 12.98%, #3B82F6 116.28%)",
           }}
         />
+      </div>
+
+      {/* Watermark text */}
+      <div className="absolute top-[178px] right-[calc(50%-756px+1014px)] pointer-events-none select-none hidden lg:block">
+        <span
+          className="text-[150px] font-medium leading-none"
+          style={{ color: "rgba(255, 255, 255, 0.1)" }}
+        >
+          Anai
+        </span>
       </div>
 
       {/* Content */}
@@ -30,17 +36,17 @@ export default function Hero() {
           transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
           <h1>
-            <span className="block text-white text-[28px] md:text-[36px] lg:text-[40px] font-medium leading-tight">
-              어제보다 오늘 더,
+            <span className="block text-[#F8FAFC] text-[32px] md:text-[50px] lg:text-[70px] font-medium leading-[1.2]">
+              Beyond Recording,
             </span>
-            <span className="block text-white text-[28px] md:text-[36px] lg:text-[40px] font-bold leading-tight mt-5 lg:mt-8">
-              마음 놓이는 현장을 만듭니다.
+            <span className="block text-[#F8FAFC] text-[32px] md:text-[50px] lg:text-[70px] font-medium leading-[1.2] mt-3 lg:mt-4">
+              Toward Decision Making
             </span>
           </h1>
         </motion.div>
 
         <motion.p
-          className="text-[#CACACA] text-[16px] md:text-[18px] lg:text-[20px] mt-10 lg:mt-16 max-w-[802px] leading-relaxed"
+          className="text-[#CCCCCC] text-[16px] md:text-[22px] lg:text-[28px] mt-10 lg:mt-[80px] max-w-[1122px] leading-[1.3]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -49,9 +55,7 @@ export default function Hero() {
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
         >
-          꼬여있던 과정 속 매듭을 풀고, 반복되던 번거로움을 덜어내어
-          <br className="hidden md:block" />
-          오직 현장의 본질적인 가치만 남게 합니다.
+          기록하는 시스템에서 판단하는 시스템으로, 비즈니스의 '다음 수'를 제시합니다
         </motion.p>
       </div>
 
@@ -78,7 +82,7 @@ export default function Hero() {
             >
               <path
                 d="M4 3L20 11L36 3"
-                stroke="#21486F"
+                stroke="rgba(255,255,255,0.4)"
                 strokeWidth="2.5"
                 strokeLinecap="round"
               />
