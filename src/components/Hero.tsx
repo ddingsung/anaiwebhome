@@ -18,22 +18,20 @@ export default function Hero() {
         />
       </div>
 
-      {/* Watermark text — floating, aligned to content container */}
-      <div className="absolute inset-0 flex justify-center pointer-events-none">
-        <div className="w-full max-w-[1512px] px-6 md:px-12 lg:px-[144px] relative">
-          <motion.div
-            className="absolute top-[178px] right-[144px] select-none hidden lg:block"
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      {/* Watermark text — floating */}
+      <div className="absolute inset-0 pointer-events-none hidden lg:flex items-start justify-center">
+        <motion.div
+          className="w-full max-w-[1512px] px-[144px] text-right mt-[178px] select-none"
+          animate={{ y: [0, -12, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <span
+            className="text-[150px] font-medium leading-none"
+            style={{ color: "rgba(255, 255, 255, 0.1)" }}
           >
-            <span
-              className="text-[150px] font-medium leading-none"
-              style={{ color: "rgba(255, 255, 255, 0.1)" }}
-            >
-              Anai
-            </span>
-          </motion.div>
-        </div>
+            Anai
+          </span>
+        </motion.div>
       </div>
 
       {/* Content */}
