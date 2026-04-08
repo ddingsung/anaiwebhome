@@ -12,6 +12,7 @@ interface ServiceDetailProps {
   problem: string;
   solution: string;
   demoHref?: string;
+  videoSrc?: string;
   align: "left" | "right";
 }
 
@@ -23,6 +24,7 @@ export default function ServiceDetail({
   problem,
   solution,
   demoHref,
+  videoSrc,
   align,
 }: ServiceDetailProps) {
   const ref = useRef(null);
@@ -137,22 +139,38 @@ export default function ServiceDetail({
 
         {/* Demo section */}
         <motion.div
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-10 lg:mt-14"
+          className="mt-10 lg:mt-14"
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <span className="text-[22px] lg:text-[28px] font-normal text-black">
-            데모영상
-          </span>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-6">
+            <span className="text-[22px] lg:text-[28px] font-normal text-black">
+              데모영상
+            </span>
 
-          {demoHref && (
-            <Link
-              href={demoHref}
-              className="inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
-            >
-              데모 시연하기
-            </Link>
+            {demoHref && (
+              <Link
+                href={demoHref}
+                className="inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
+              >
+                데모 시연하기
+              </Link>
+            )}
+          </div>
+
+          {videoSrc && (
+            <div className="rounded-[16px] overflow-hidden border border-[#E0E0E0] shadow-lg">
+              <video
+                src={videoSrc}
+                controls
+                playsInline
+                muted
+                loop
+                preload="metadata"
+                className="w-full"
+              />
+            </div>
           )}
         </motion.div>
       </div>

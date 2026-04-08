@@ -17,6 +17,7 @@ const serviceDetails = [
     solution:
       "AI CRM은 데이터를 정리해두기만 하는 도구가 아닙니다. 무엇을 먼저 보고, 어디에 집중해야 하는지 바로 알려줍니다. 거래처 우선순위, 영업 판단, 매출 흐름을 데이터로 정리해 회사에 맞는 실행 방향을 제시합니다. 사용자는 복잡한 메뉴 대신, 제안된 우선순위를 보고 바로 움직이면 됩니다.",
     demoHref: "/demo/aicrm",
+    videoSrc: "/anaiwebhome/movies/1_aicrm.mp4",
     align: "left" as const,
   },
   {
@@ -29,6 +30,7 @@ const serviceDetails = [
     solution:
       "카메라 영상에서 스크래치, 찍힘, 오염, 누락 같은 불량을 바로 찾아냅니다. 작업자가 모든 제품을 끝까지 눈으로 확인하지 않아도, 이상이 보인 순간 바로 표시하고 알립니다. 검사는 더 빠르게, 판정은 더 일정하게 바뀝니다.",
     demoHref: "/demo/smartqa",
+    videoSrc: "/anaiwebhome/movies/2_smartqa.mp4",
     align: "right" as const,
   },
   {
@@ -41,6 +43,7 @@ const serviceDetails = [
     solution:
       "이미지 속 대상과 결함 영역을 AI가 먼저 표시합니다. 사람은 처음부터 다 그리지 않고, AI가 잡아준 결과를 확인하고 수정만 하면 됩니다. 데이터 준비 시간을 크게 줄여, 현장 적용을 더 빨리 시작할 수 있습니다.",
     demoHref: "/demo/autoannotation",
+    videoSrc: "/anaiwebhome/movies/3_autoannotation.mp4",
     align: "left" as const,
   },
   {
@@ -53,6 +56,7 @@ const serviceDetails = [
     solution:
       "도크, 차량, 상하차, 컨베이어 흐름을 하나로 연결해 병목과 지연 위험을 실시간으로 파악합니다. 도크 재배정, 작업 우선순위 조정, 병목 완화 방안을 함께 제안해 운영자가 더 빠르게 대응할 수 있도록 돕습니다. 기존 시스템을 모두 바꾸지 않아도, 현재 운영 데이터와 설비 정보를 바탕으로 현장에 맞게 단계적으로 적용할 수 있습니다.",
     demoHref: "/demo/smartlog",
+    videoSrc: "/anaiwebhome/movies/4_smartlog.mov",
     align: "right" as const,
   },
   {
@@ -65,6 +69,7 @@ const serviceDetails = [
     solution:
       "문서에서 품목, 수량, 단가, 날짜 같은 핵심 정보를 바로 뽑아냅니다. 사람이 종이를 보고 다시 타이핑하지 않아도, 필요한 데이터를 정리해 다음 업무로 넘길 수 있게 합니다. 읽고 옮겨 적는 일을 줄여, 문서 처리를 더 빠르고 정확하게 만듭니다.",
     demoHref: "/demo/idp",
+    videoSrc: "/anaiwebhome/movies/5_idp.mp4",
     align: "left" as const,
   },
   {
@@ -77,6 +82,7 @@ const serviceDetails = [
     solution:
       "카메라 앞에 서기만 하면 AI가 전신 33개 관절을 실시간으로 추적합니다. 선생님이 오실 때까지 기다릴 필요 없이, 현재 내가 어떻게 하고 있는지를 화면에 즉시 수치로 보여줍니다. 틀린 자세를 그 자리에서 바로 교정해주어, 혼자서도 개인 레슨을 받는 것처럼 실력을 키울 수 있습니다.",
     demoHref: undefined,
+    videoSrc: "/anaiwebhome/movies/6.mov",
     align: "right" as const,
   },
 ];
