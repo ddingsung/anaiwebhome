@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import DemoLinks from "@/components/DemoLinks";
 import ServiceCards from "@/components/ServiceCards";
 import ServiceDetail from "@/components/ServiceDetail";
 import ValueCards from "@/components/ValueCards";
@@ -50,6 +51,7 @@ export default function Home() {
     <main>
       <Header />
       <Hero />
+      <DemoLinks />
       <ServiceCards />
       <div id="fna">
         {serviceDetails.map((detail, i) => (
