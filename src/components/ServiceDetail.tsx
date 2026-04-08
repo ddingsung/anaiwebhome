@@ -144,23 +144,12 @@ export default function ServiceDetail({
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-6">
-            <span className="text-[22px] lg:text-[28px] font-normal text-black">
-              데모영상
-            </span>
-
-            {demoHref && (
-              <Link
-                href={demoHref}
-                className="inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
-              >
-                데모 시연하기
-              </Link>
-            )}
-          </div>
+          <span className="block text-[22px] lg:text-[28px] font-normal text-black mb-6 text-center">
+            데모영상
+          </span>
 
           {videoSrc && (
-            <div className="rounded-[16px] overflow-hidden border border-[#E0E0E0] shadow-lg">
+            <div className="relative rounded-[16px] overflow-hidden border border-[#E0E0E0] shadow-lg">
               <video
                 src={videoSrc}
                 controls
@@ -170,6 +159,16 @@ export default function ServiceDetail({
                 preload="metadata"
                 className="w-full"
               />
+              {demoHref && (
+                <div className="absolute bottom-4 right-4 z-10">
+                  <Link
+                    href={demoHref}
+                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-[10px] bg-white/90 backdrop-blur-sm border border-[#333] text-[14px] lg:text-[16px] text-[#333] hover:bg-white transition-colors shadow-md"
+                  >
+                    데모 시연하기
+                  </Link>
+                </div>
+              )}
             </div>
           )}
         </motion.div>
