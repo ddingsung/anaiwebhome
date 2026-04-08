@@ -20,11 +20,11 @@ function useImage(url: string, cached?: HTMLImageElement) {
     const img = new window.Image()
     img.crossOrigin = 'anonymous'
     img.src = url
-    if (img.complete) { setLoadedImage(img); return }
+    if (img.complete && img.naturalWidth > 0) { setLoadedImage(img); return }
     img.onload = () => setLoadedImage(img)
-    return () => { img.onload = null }
+    img.onerror = () => setLoadedImage(null)
+    return () => { img.onload = null; img.onerror = null }
   }, [url, cached])
-  // cached가 있으면 state 업데이트 없이 즉시 반환 (렌더 지연 없음)
   return cached ?? loadedImage
 }
 
