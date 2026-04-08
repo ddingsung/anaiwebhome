@@ -14,8 +14,10 @@ function getKpis(docs: Document[]) {
   return { total, reviewNeeded, submitted }
 }
 
+let uploadCounter = 0
 function generateUploadId() {
-  return `upload-${Date.now().toString(36)}`
+  uploadCounter++
+  return `upload-${String(uploadCounter).padStart(3, '0')}`
 }
 
 type DocType = '세금계산서' | '발주서' | '납품서' | '거래명세서'
