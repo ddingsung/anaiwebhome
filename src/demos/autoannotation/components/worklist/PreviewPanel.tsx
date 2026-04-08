@@ -112,7 +112,7 @@ export function PreviewPanel({ task, showAction = true }: PreviewPanelProps) {
       {showAction && (
         <div className="border-t border-border-default p-3">
           <Link
-            href={`/review/${task.id}`}
+            href={`/demo/autoannotation/review/${task.id}`}
             className="flex w-full items-center justify-center rounded bg-accent-domain px-3 py-2 text-[12px] font-medium text-white transition-colors hover:bg-blue-600"
           >
             검토 시작
