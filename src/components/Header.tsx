@@ -3,11 +3,19 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const floatAnimation = {
+  y: [0, -6, 0],
+  transition: {
+    duration: 3,
+    repeat: Infinity,
+    ease: "easeInOut" as const,
+  },
+};
+
 const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About us", href: "#about" },
-  { name: "Contact", href: "#contact" },
-  { name: "FnA", href: "#fna" },
+  { name: "홈", href: "#home" },
+  { name: "회사소개", href: "#about" },
+  { name: "상담문의", href: "#contact" },
 ];
 
 export default function Header() {
@@ -28,31 +36,47 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-[1512px] mx-auto px-6 md:px-12 lg:px-[144px] h-[74px] flex items-center justify-between">
-        {/* Logo */}
-        <a
-          href="#home"
-          className={`text-[25px] font-medium transition-colors duration-500 ${
-            scrolled ? "text-[#111]" : "text-brand"
+      <div className="max-w-[1512px] mx-auto px-6 md:px-12 lg:px-[107px] h-[74px] flex items-center justify-between">
+        {/* Left: Logo + Nav */}
+        <div className="flex items-center gap-10">
+          <a
+            href="#home"
+            className="flex items-center gap-2"
+          >
+            <div className={`w-[42px] h-[36px] rounded flex items-center justify-center transition-colors duration-500 ${
+              scrolled ? "bg-[#D9D9D9]" : "bg-[#D9D9D9]"
+            }`}>
+              <span className={`text-[18px] font-semibold transition-colors duration-500 ${
+                scrolled ? "text-black" : "text-black"
+              }`}>로고</span>
+            </div>
+          </a>
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex items-center gap-10">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`text-[18px] transition-colors duration-300 hover:opacity-70 ${
+                  scrolled ? "text-[#111]" : "text-white"
+                }`}
+              >
+                {link.name}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        {/* Right: Anai floating text */}
+        <motion.span
+          className={`hidden lg:block text-[25px] font-medium transition-colors duration-500 ${
+            scrolled ? "text-[#111]" : "text-white"
           }`}
+          animate={floatAnimation}
         >
           Anai
-        </a>
-
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-16">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className={`text-[18px] transition-colors duration-300 hover:opacity-70 ${
-                scrolled ? "text-[#111]" : "text-brand"
-              }`}
-            >
-              {link.name}
-            </a>
-          ))}
-        </nav>
+        </motion.span>
 
         {/* Mobile Hamburger */}
         <button
@@ -64,7 +88,7 @@ export default function Header() {
             <span
               key={i}
               className={`block w-6 h-0.5 transition-all duration-300 ${
-                scrolled ? "bg-[#111]" : "bg-brand"
+                scrolled ? "bg-[#111]" : "bg-white"
               } ${
                 mobileOpen && i === 0
                   ? "rotate-45 translate-y-2"

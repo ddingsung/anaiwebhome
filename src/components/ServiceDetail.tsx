@@ -2,21 +2,28 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import Link from "next/link";
 
 interface ServiceDetailProps {
   id: string;
   number: string;
+  tag: string;
   title: string;
   problem: string;
   solution: string;
+  demoHref?: string;
+  align: "left" | "right";
 }
 
 export default function ServiceDetail({
   id,
   number,
+  tag,
   title,
   problem,
   solution,
+  demoHref,
+  align,
 }: ServiceDetailProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-60px" });
@@ -26,65 +33,128 @@ export default function ServiceDetail({
       <div className="max-w-[1512px] mx-auto px-6 md:px-12 lg:px-[144px]">
         {/* Title */}
         <motion.h2
-          className="text-[22px] md:text-[28px] lg:text-[35px] font-medium text-[#111] mb-10 lg:mb-14"
-          initial={{ opacity: 0, x: -30 }}
+          className={`text-[22px] md:text-[28px] lg:text-[35px] font-medium text-[#111] mb-10 lg:mb-14 ${
+            align === "right" ? "text-right" : "text-left"
+          }`}
+          initial={{ opacity: 0, x: align === "left" ? -30 : 30 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          {number}. {title}
+          {number}. [{tag}] {title}
         </motion.h2>
 
-        {/* Question bubble */}
+        {/* Overlapping cards container */}
         <motion.div
-          className="mb-5 lg:mb-6"
-          initial={{ opacity: 0, x: -20 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          className="relative flex flex-col"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <div className="inline-block ml-5">
-            <div className="bubble-left bg-white border border-black rounded-[10px] px-5 py-3.5">
-              <span className="text-[16px] lg:text-[20px] text-black">
-                어떤 불편함을 해결하나요?
-              </span>
+          {/* Problem Card — left aligned, z-20 (top layer) */}
+          <div
+            className="relative z-20 w-full lg:w-[80%] rounded-[20px] p-8 lg:p-10 lg:pb-24 lg:pr-24"
+            style={{
+              background: "rgba(255, 255, 255, 0.95)",
+              border: "0.5px solid rgba(0,0,0,0.06)",
+              boxShadow: "0px 15px 40px rgba(0, 0, 0, 0.08)",
+            }}
+          >
+            {/* Emoji + Blue bubble row */}
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-[36px] lg:text-[42px] flex-shrink-0">🤷‍♀️</span>
+              <div className="relative">
+                <div
+                  className="rounded-[20px] px-5 py-3 lg:px-6 lg:py-3.5"
+                  style={{ background: "#5C72C4" }}
+                >
+                  <span className="text-[14px] lg:text-[17px] text-white font-medium whitespace-nowrap">
+                    어떤 불편함을 해결하나요?
+                  </span>
+                </div>
+                {/* Bubble tail pointing left toward emoji */}
+                <div
+                  className="absolute -left-[6px] top-1/2 -translate-y-1/2 w-0 h-0"
+                  style={{
+                    borderTop: "8px solid transparent",
+                    borderBottom: "8px solid transparent",
+                    borderRight: "10px solid #5C72C4",
+                  }}
+                />
+              </div>
             </div>
+
+            {/* Problem text */}
+            <p className="text-[15px] lg:text-[18px] leading-[1.7] text-[#333]">
+              {problem}
+            </p>
+          </div>
+
+          {/* Solution Card — right aligned, z-10 (bottom layer), overlaps behind problem card */}
+          <div
+            className="relative z-10 w-full lg:w-[80%] self-end -mt-6 lg:-mt-[80px] rounded-[20px] p-8 lg:p-10 lg:pt-24 lg:pl-24"
+            style={{
+              background: "rgba(255, 255, 255, 0.85)",
+              border: "0.5px solid rgba(0,0,0,0.06)",
+              boxShadow: "0px 10px 40px rgba(0, 0, 0, 0.05)",
+              backdropFilter: "blur(10px)",
+            }}
+          >
+            {/* Purple bubble + Anai badge row (right-aligned) */}
+            <div className="flex items-center justify-end gap-3 mb-6">
+              <div className="relative">
+                <div
+                  className="rounded-[20px] px-5 py-3 lg:px-6 lg:py-3.5"
+                  style={{ background: "#5D4B7A" }}
+                >
+                  <span className="text-[14px] lg:text-[17px] text-white font-medium whitespace-nowrap">
+                    무엇이 바뀌나요?
+                  </span>
+                </div>
+                {/* Bubble tail pointing right toward 아나이 */}
+                <div
+                  className="absolute -right-[6px] top-1/2 -translate-y-1/2 w-0 h-0"
+                  style={{
+                    borderTop: "8px solid transparent",
+                    borderBottom: "8px solid transparent",
+                    borderLeft: "10px solid #5D4B7A",
+                  }}
+                />
+              </div>
+              {/* Anai badge */}
+              <div className="flex-shrink-0 w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] bg-white border shadow-sm rounded-[12px] flex items-center justify-center">
+                <span className="text-[15px] lg:text-[17px] font-bold text-[#333]">
+                  아나이
+                </span>
+              </div>
+            </div>
+
+            {/* Solution text */}
+            <p className="text-[15px] lg:text-[18px] leading-[1.7] text-[#333] text-right">
+              {solution}
+            </p>
           </div>
         </motion.div>
 
-        {/* Problem text */}
-        <motion.p
-          className="text-[16px] lg:text-[18px] leading-[1.7] text-[#111] max-w-[655px] mb-14 lg:mb-20"
-          initial={{ opacity: 0, y: 15 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.35 }}
-        >
-          {problem}
-        </motion.p>
-
-        {/* Answer bubble */}
+        {/* Demo section */}
         <motion.div
-          className="flex justify-start lg:justify-end mb-5 lg:mb-6"
-          initial={{ opacity: 0, x: 20 }}
-          animate={isInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <div className="inline-block mr-5">
-            <div className="bubble-right bg-white border border-black rounded-[10px] px-5 py-3.5">
-              <span className="text-[16px] lg:text-[20px] text-black">
-                무엇이 바뀌나요?
-              </span>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Solution text */}
-        <motion.p
-          className="text-[16px] lg:text-[18px] leading-[1.7] text-[#111] max-w-[608px] lg:text-right lg:ml-auto"
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-10 lg:mt-14"
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.65 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
         >
-          {solution}
-        </motion.p>
+          <span className="text-[22px] lg:text-[28px] font-normal text-black">
+            데모영상
+          </span>
+
+          {demoHref && (
+            <Link
+              href={demoHref}
+              className="inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
+            >
+              데모 시연하기
+            </Link>
+          )}
+        </motion.div>
       </div>
     </section>
   );

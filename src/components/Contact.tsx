@@ -11,121 +11,264 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-20 lg:py-32 bg-surface overflow-hidden"
+      className="relative py-20 lg:py-32 overflow-hidden"
       ref={ref}
+      style={{
+        background: "linear-gradient(180deg, #FDFDFD -6.28%, #F1F1F1 100%)",
+      }}
     >
-      {/* Decorative diagonal lines */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {[
-          { w: 53, h: 800, x: -5, y: -15, rotate: -49 },
-          { w: 104, h: 900, x: 35, y: -25, rotate: -49 },
-          { w: 298, h: 1000, x: -8, y: -5, rotate: -49 },
-          { w: 21, h: 430, x: 78, y: 15, rotate: -49 },
-          { w: 14, h: 167, x: 92, y: 25, rotate: -49 },
-        ].map((line, i) => (
-          <div
-            key={i}
-            className="absolute bg-[rgba(60,91,255,0.03)]"
-            style={{
-              width: `${line.w}px`,
-              height: `${line.h}px`,
-              left: `${line.x}%`,
-              top: `${line.y}%`,
-              transform: `rotate(${line.rotate}deg)`,
-            }}
-          />
-        ))}
-      </div>
-
       <div className="relative z-10 max-w-[1512px] mx-auto px-6 md:px-12 lg:px-[144px]">
-        <div className="max-w-[700px] mx-auto">
-          {/* Heading */}
-          <motion.div
-            className="text-center mb-10 lg:mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-[26px] lg:text-[36px] font-bold text-[#111] mb-3">
-              우리 현장에도 적용할 수 있을까요?
-            </h2>
-            <p className="text-[15px] lg:text-[18px] text-[#7F7F7F]">
-              현장의 이야기를 들려주세요. 가장 적합한 방법을 함께
-              찾아드리겠습니다.
-            </p>
-          </motion.div>
+        {/* Main Contact Card */}
+        <motion.div
+          className="rounded-[30px] p-8 lg:p-12"
+          style={{
+            background: "rgba(255, 255, 255, 0.75)",
+            border: "0.5px solid #FFFFFF",
+            boxShadow: "0px 10px 40px rgba(0, 0, 0, 0.05)",
+          }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-14">
+            {/* Left Column — Consultation Methods */}
+            <div className="flex-1">
+              <h2 className="text-[18px] lg:text-[21px] font-bold text-[#333] mb-6">
+                지금 바로 상담받기
+              </h2>
 
-          {/* Form */}
-          {!submitted ? (
-            <motion.form
-              className="space-y-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              onSubmit={(e) => {
-                e.preventDefault();
-                setSubmitted(true);
-              }}
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  placeholder="회사명"
-                  required
-                  className="w-full px-5 py-4 bg-white border border-[#E2E8F0] rounded-xl text-[16px] text-[#111] placeholder:text-[#aaa] focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors"
-                />
-                <input
-                  type="text"
-                  placeholder="담당자명"
-                  required
-                  className="w-full px-5 py-4 bg-white border border-[#E2E8F0] rounded-xl text-[16px] text-[#111] placeholder:text-[#aaa] focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors"
-                />
-              </div>
-              <input
-                type="tel"
-                placeholder="연락처 (전화번호)"
-                required
-                className="w-full px-5 py-4 bg-white border border-[#E2E8F0] rounded-xl text-[16px] text-[#111] placeholder:text-[#aaa] focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors"
-              />
-              <textarea
-                placeholder="현장에서 겪고 계신 고민을 간단히 적어주세요 (선택)"
-                rows={4}
-                className="w-full px-5 py-4 bg-white border border-[#E2E8F0] rounded-xl text-[16px] text-[#111] placeholder:text-[#aaa] focus:outline-none focus:border-brand focus:ring-1 focus:ring-brand transition-colors resize-none"
-              />
-              <button
-                type="submit"
-                className="w-full py-4 bg-[#111] text-white text-[18px] font-semibold rounded-xl hover:bg-brand transition-colors duration-300 active:scale-[0.99]"
+              {/* Phone Card */}
+              <div
+                className="rounded-[13px] p-6 mb-4"
+                style={{
+                  background: "#FFFFFF",
+                  border: "0.5px solid #E2E2E2",
+                  boxShadow: "0px 12px 10px rgba(0, 0, 0, 0.08)",
+                }}
               >
-                상담 요청하기
-              </button>
-            </motion.form>
-          ) : (
-            <motion.div
-              className="text-center py-16"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[rgba(51,153,51,0.6)] flex items-center justify-center">
-                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                  <path
-                    d="M6 14L12 20L22 8"
-                    stroke="white"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <div className="flex items-center gap-4">
+                  {/* Phone Icon */}
+                  <div className="w-[49px] h-[49px] rounded-[9px] flex items-center justify-center"
+                    style={{ boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.05)" }}>
+                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
+                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-[14px] font-semibold text-[#333]">전화 상담</h4>
+                    <p className="text-[12px] text-[#333] opacity-80">평일 09:00-18:00</p>
+                    <p className="text-[14px] font-medium text-[#333]">02-1234-5678</p>
+                  </div>
+                  <a
+                    href="tel:02-1234-5678"
+                    className="px-4 py-1.5 rounded-[7px] bg-[#6E7AE2] text-white text-[12px] font-medium text-center hover:bg-[#5B68CF] transition-colors"
+                  >
+                    전화하기
+                  </a>
+                </div>
               </div>
-              <h3 className="text-[24px] font-bold text-[#111] mb-2">
-                접수되었습니다
-              </h3>
-              <p className="text-[16px] text-[#7F7F7F]">
-                빠르게 연락드리겠습니다. 감사합니다.
-              </p>
-            </motion.div>
-          )}
-        </div>
+
+              {/* Email Card */}
+              <div
+                className="rounded-[13px] p-6"
+                style={{
+                  background: "#FFFFFF",
+                  border: "0.5px solid #E2E2E2",
+                  boxShadow: "0px 12px 10px rgba(0, 0, 0, 0.08)",
+                }}
+              >
+                <div className="flex items-center gap-4">
+                  {/* Email Icon */}
+                  <div className="w-[49px] h-[49px] rounded-[9px] flex items-center justify-center"
+                    style={{ boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.08)" }}>
+                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
+                      <rect x="2" y="4" width="20" height="16" rx="2" stroke="#333" strokeWidth="2"/>
+                      <path d="M2 7l10 7 10-7" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="text-[14px] font-semibold text-[#333]">이메일 문의</h4>
+                    <p className="text-[12px] text-[#333] opacity-80">24시간 접수</p>
+                    <p className="text-[14px] font-medium text-[#333]">info@packagedesign.co.kr</p>
+                  </div>
+                  <a
+                    href="mailto:info@packagedesign.co.kr"
+                    className="px-4 py-1.5 rounded-[7px] bg-[#6E7AE2] text-white text-[12px] font-medium text-center hover:bg-[#5B68CF] transition-colors"
+                  >
+                    메일 보내기
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column — Contact Form */}
+            <div className="flex-1">
+              <div
+                className="rounded-[13px] bg-white p-7"
+                style={{
+                  boxShadow: "0px 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                }}
+              >
+                <h3 className="text-[18px] lg:text-[21px] font-semibold text-[#101828] mb-5">
+                  빠른 문의하기
+                </h3>
+
+                {!submitted ? (
+                  <form
+                    className="space-y-4"
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      setSubmitted(true);
+                    }}
+                  >
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {/* Company Name */}
+                      <div>
+                        <label className="block text-[12px] font-medium text-[#364153] mb-1.5">
+                          회사명
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="회사명을 입력해주세요"
+                          className="w-full px-3 py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[7px] text-[12px] text-[#111] placeholder:text-[#717182] focus:outline-none focus:border-[#6E7AE2] focus:ring-1 focus:ring-[#6E7AE2] transition-colors"
+                        />
+                      </div>
+                      {/* Contact Person */}
+                      <div>
+                        <label className="block text-[12px] font-medium text-[#364153] mb-1.5">
+                          담당자명 *
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="담당자명을 입력해주세요"
+                          required
+                          className="w-full px-3 py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[7px] text-[12px] text-[#111] placeholder:text-[#717182] focus:outline-none focus:border-[#6E7AE2] focus:ring-1 focus:ring-[#6E7AE2] transition-colors"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {/* Phone */}
+                      <div>
+                        <label className="block text-[12px] font-medium text-[#364153] mb-1.5">
+                          연락처 *
+                        </label>
+                        <input
+                          type="tel"
+                          placeholder="연락처를 입력해주세요"
+                          required
+                          className="w-full px-3 py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[7px] text-[12px] text-[#111] placeholder:text-[#717182] focus:outline-none focus:border-[#6E7AE2] focus:ring-1 focus:ring-[#6E7AE2] transition-colors"
+                        />
+                      </div>
+                      {/* Email */}
+                      <div>
+                        <label className="block text-[12px] font-medium text-[#364153] mb-1.5">
+                          이메일 *
+                        </label>
+                        <input
+                          type="email"
+                          placeholder="이메일을 입력해주세요"
+                          required
+                          className="w-full px-3 py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[7px] text-[12px] text-[#111] placeholder:text-[#717182] focus:outline-none focus:border-[#6E7AE2] focus:ring-1 focus:ring-[#6E7AE2] transition-colors"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Message */}
+                    <div>
+                      <label className="block text-[12px] font-medium text-[#364153] mb-1.5">
+                        상담 내용
+                      </label>
+                      <textarea
+                        placeholder="문의하시고자 하는 내용을 남겨주세요."
+                        rows={4}
+                        className="w-full px-3 py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[7px] text-[12px] text-[#111] placeholder:text-[#717182] focus:outline-none focus:border-[#6E7AE2] focus:ring-1 focus:ring-[#6E7AE2] transition-colors resize-none"
+                      />
+                    </div>
+
+                    {/* Submit */}
+                    <button
+                      type="submit"
+                      className="w-full py-3 bg-[#6E7AE2] text-white text-[15px] font-medium rounded-[7px] hover:bg-[#5B68CF] transition-colors"
+                    >
+                      무료 상담 신청하기
+                    </button>
+
+                    <p className="text-center text-[12px] text-[#6A7282]">
+                      문의 접수 후 24시간 내 연락드립니다
+                    </p>
+                  </form>
+                ) : (
+                  <motion.div
+                    className="text-center py-12"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#6E7AE2] flex items-center justify-center">
+                      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                        <path d="M6 14L12 20L22 8" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                    <h3 className="text-[24px] font-bold text-[#111] mb-2">접수되었습니다</h3>
+                    <p className="text-[16px] text-[#7F7F7F]">빠르게 연락드리겠습니다. 감사합니다.</p>
+                  </motion.div>
+                )}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Bottom Info Bar */}
+        <motion.div
+          className="mt-8 rounded-[30px] p-8 lg:p-10"
+          style={{
+            background: "rgba(255, 255, 255, 0.75)",
+            border: "0.5px solid #FFFFFF",
+            boxShadow: "0px 10px 40px rgba(0, 0, 0, 0.05)",
+          }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <div className="flex flex-col md:flex-row gap-8 md:gap-0 md:justify-between">
+            {/* Location */}
+            <div className="flex items-center gap-3">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="#6E7AE2" strokeWidth="2"/>
+                <circle cx="12" cy="9" r="2.5" stroke="#6E7AE2" strokeWidth="2"/>
+              </svg>
+              <div>
+                <p className="text-[14px] lg:text-[16px] font-medium text-[#333]">오시는 길</p>
+                <p className="text-[13px] lg:text-[14px] text-[#333] opacity-80">서울특별시 강서구</p>
+              </div>
+            </div>
+
+            {/* Hours */}
+            <div className="flex items-center gap-3">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" stroke="#6E7AE2" strokeWidth="2"/>
+                <path d="M12 6v6l4 2" stroke="#6E7AE2" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+              <div>
+                <p className="text-[14px] lg:text-[16px] font-medium text-[#333]">운영시간</p>
+                <p className="text-[13px] lg:text-[14px] text-[#333] opacity-80">평일 09:00 - 18:00 (주말 휴무)</p>
+              </div>
+            </div>
+
+            {/* Business Info */}
+            <div className="flex items-center gap-3">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <rect x="3" y="7" width="18" height="13" rx="2" stroke="#6E7AE2" strokeWidth="2"/>
+                <path d="M3 7l9 6 9-6" stroke="#6E7AE2" strokeWidth="2"/>
+              </svg>
+              <div>
+                <p className="text-[14px] lg:text-[16px] font-medium text-[#333]">사업자 정보</p>
+                <p className="text-[13px] lg:text-[14px] text-[#333] opacity-80">사업자등록번호: 123-45-67890</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
