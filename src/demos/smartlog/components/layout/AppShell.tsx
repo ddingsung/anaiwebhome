@@ -29,7 +29,7 @@ export default function AppShell({ children }: AppShellProps) {
   }, [pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <>
+    <div className="smartlog-theme">
       {/* 모바일 가드 — 768px 미만에서 표시 */}
       <div
         className="flex md:hidden flex-col items-center justify-center h-screen gap-6 px-8 text-center"
@@ -87,6 +87,6 @@ export default function AppShell({ children }: AppShellProps) {
       {tourOpen && pageSteps.length > 0 && (
         <TourOverlay steps={pageSteps} onClose={() => setTourOpen(false)} />
       )}
-    </>
+    </div>
   );
 }
