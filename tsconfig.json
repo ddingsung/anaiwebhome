@@ -19,7 +19,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@aa/*": ["./src/demos/autoannotation/*"],
+      "@sq/*": ["./src/demos/smartqa/*"],
+      "@crm/*": ["./src/demos/aicrm/*"]
     }
   },
   "include": [
