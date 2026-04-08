@@ -199,6 +199,28 @@ body {
   --radius-lg: calc(var(--radius) * 1.5);
   --radius-xl: calc(var(--radius) * 2);
 
+  /* IDP custom colors — enables bg-bg-base, text-text-primary, rounded-card etc. */
+  --color-bg-base: #F8F9FA;
+  --color-bg-surface: #FFFFFF;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6B7280;
+  --color-text-tertiary: #9CA3AF;
+  --color-accent: #3B5BDB;
+  --color-accent-light: #EEF2FF;
+  --color-success: #2F9E44;
+  --color-success-light: #EBFBEE;
+  --color-warning: #F08C00;
+  --color-warning-light: #FFF9DB;
+  --color-error: #E03131;
+  --color-error-light: #FFF5F5;
+  --color-ai-label: #6B7280;
+  --color-surface: #FFFFFF;
+  --radius-card: 10px;
+  --radius-button: 8px;
+  --radius-badge: 6px;
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-modal: 0 4px 24px rgba(0,0,0,0.10);
+
   /* SmartQA custom colors */
   --color-sq-bg:     #0d0f11;
   --color-sq-panel:  #131619;
@@ -214,6 +236,7 @@ body {
   /* AICRM animations */
   --animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-shimmer: shimmer 2s linear infinite;
+
 }
 
 @keyframes shimmer {
