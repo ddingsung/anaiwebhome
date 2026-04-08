@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fdemo\u002Fautoannotation\u002Freview\u002F[id]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()
