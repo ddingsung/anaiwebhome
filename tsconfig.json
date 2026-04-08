@@ -22,7 +22,9 @@
       "@/*": ["./src/*"],
       "@aa/*": ["./src/demos/autoannotation/*"],
       "@sq/*": ["./src/demos/smartqa/*"],
-      "@crm/*": ["./src/demos/aicrm/*"]
+      "@crm/*": ["./src/demos/aicrm/*"],
+      "@sl/*": ["./src/demos/smartlog/*"],
+      "@idp/*": ["./src/demos/idp/*"]
     }
   },
   "include": [

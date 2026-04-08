@@ -22,6 +22,18 @@ const demos = [
     desc: "영업 우선순위 의사결정",
     color: "#8B5CF6",
   },
+  {
+    href: "/demo/smartlog",
+    title: "Smart Log",
+    desc: "물류 운영 AI 관제",
+    color: "#06B6D4",
+  },
+  {
+    href: "/demo/idp",
+    title: "IDP",
+    desc: "지능형 문서 자동화",
+    color: "#F59E0B",
+  },
 ];
 
 export default function DemoLinks() {

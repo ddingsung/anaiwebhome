@@ -229,3 +229,45 @@ body {
 
 /* SmartQA tabular nums utility */
 .num { font-variant-numeric: tabular-nums; }
+
+/* ═══ Demo: SmartLog OCC ═══ */
+@keyframes pulse-critical {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+@keyframes pulse-warning {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInUp {
+  from { transform: translateY(8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-pulse-critical { animation: pulse-critical 1.5s ease-in-out infinite; }
+.animate-pulse-warning { animation: pulse-warning 2s ease-in-out infinite; }
+.animate-blink { animation: blink 1.2s step-end infinite; }
+.animate-slide-in-right { animation: slideInRight 200ms ease-out; }
+.animate-slide-in-up { animation: slideInUp 200ms ease-out; }
+.animate-fade-in { animation: fadeIn 300ms ease-out; }
+
+/* ═══ Demo: IDP ═══ */
+.font-numeric {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+@keyframes demo-ripple {
+  from { transform: translate(-7px, -7px) scale(0.5); opacity: 1; }
+  to   { transform: translate(-7px, -7px) scale(2);   opacity: 0; }
+}
