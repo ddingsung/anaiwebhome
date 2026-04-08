@@ -230,7 +230,32 @@ body {
 /* SmartQA tabular nums utility */
 .num { font-variant-numeric: tabular-nums; }
 
-/* ═══ Demo: SmartLog OCC ═══ */
+/* ═══ Demo: SmartLog OCC — scoped theme ═══ */
+.smartlog-theme {
+  --bg-base: #0a0e17;
+  --bg-surface: #0f1623;
+  --bg-elevated: #161d2e;
+  --bg-overlay: #1c2438;
+
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.18);
+
+  --status-critical: #ef4444;
+  --status-warning: #f59e0b;
+  --status-normal: #10b981;
+  --status-idle: #6b7280;
+  --status-info: #3b82f6;
+
+  --accent-primary: #06b6d4;
+  --accent-ai: #8b5cf6;
+
+  --text-primary: rgba(255, 255, 255, 0.92);
+  --text-secondary: rgba(255, 255, 255, 0.60);
+  --text-muted: rgba(255, 255, 255, 0.35);
+}
+
+/* SmartLog animations */
 @keyframes pulse-critical {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
