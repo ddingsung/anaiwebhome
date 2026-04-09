@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import HashScrollHandler from "@/components/HashScrollHandler";
 import ServiceCards from "@/components/ServiceCards";
 import ServiceDetail from "@/components/ServiceDetail";
 import CtaCards from "@/components/CtaCards";
@@ -91,6 +92,7 @@ const serviceDetails = [
 export default function Home() {
   return (
     <main>
+      <HashScrollHandler />
       <Header />
       <Hero />
       <ServiceCards />

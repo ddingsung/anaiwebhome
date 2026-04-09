@@ -151,7 +151,10 @@ export default function ServiceDetail({
           </span>
 
           {videoSrc && (
-            <div className="rounded-[16px] overflow-hidden border border-[#E0E0E0] shadow-lg">
+            <div
+              className="rounded-[16px] overflow-hidden border border-[#E0E0E0] shadow-lg bg-black"
+              style={{ aspectRatio: "16 / 9" }}
+            >
               <video
                 src={videoSrc}
                 controls
@@ -159,7 +162,7 @@ export default function ServiceDetail({
                 muted
                 loop
                 preload="metadata"
-                className="w-full"
+                className="w-full h-full object-contain"
               />
             </div>
           )}

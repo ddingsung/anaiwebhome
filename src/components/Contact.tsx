@@ -11,7 +11,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative py-20 lg:py-32 overflow-hidden"
+      className="relative py-20 lg:py-32 overflow-hidden scroll-mt-[90px]"
       ref={ref}
       style={{
         background: "linear-gradient(180deg, #FDFDFD -6.28%, #F1F1F1 100%)",
