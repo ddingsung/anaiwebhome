@@ -56,7 +56,7 @@ function buildData(data: CocoData, split: Split, offset: number) {
   data.images.forEach((img, i) => {
     const globalIndex = offset + i
     const taskId = `rf-${split}-${img.id}`
-    const imageUrl = `/anaiwebhome/demo-images/${img.file_name}`
+    const imageUrl = `/demo-images/${img.file_name}`
     const imgAnns = annsByImage.get(img.id) ?? []
     const confidence = seededConfidence(globalIndex)
 
