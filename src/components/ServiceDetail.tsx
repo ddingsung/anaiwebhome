@@ -12,6 +12,7 @@ interface ServiceDetailProps {
   problem: string;
   solution: string;
   demoHref?: string;
+  demoExternal?: boolean;
   videoSrc?: string;
   align: "left" | "right";
 }
@@ -24,6 +25,7 @@ export default function ServiceDetail({
   problem,
   solution,
   demoHref,
+  demoExternal,
   videoSrc,
   align,
 }: ServiceDetailProps) {
@@ -164,12 +166,23 @@ export default function ServiceDetail({
 
           {demoHref && (
             <div className="flex justify-end mt-4">
-              <Link
-                href={demoHref}
-                className="inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
-              >
-                데모 시연하기
-              </Link>
+              {demoExternal ? (
+                <a
+                  href={demoHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
+                >
+                  데모 시연하기
+                </a>
+              ) : (
+                <Link
+                  href={demoHref}
+                  className="inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
+                >
+                  데모 시연하기
+                </Link>
+              )}
             </div>
           )}
         </motion.div>
