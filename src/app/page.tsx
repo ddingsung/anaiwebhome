@@ -81,7 +81,8 @@ const serviceDetails = [
       "학생은 수십 명인데 선생님은 한 분뿐... 저한테 오실 때까지 제 자세가 맞는지 몰라 거울만 멍하니 봐요. 내가 맞게 하고 있는 지 잘 모르겠고 불안해요.",
     solution:
       "카메라 앞에 서기만 하면 AI가 전신 33개 관절을 실시간으로 추적합니다. 선생님이 오실 때까지 기다릴 필요 없이, 현재 내가 어떻게 하고 있는지를 화면에 즉시 수치로 보여줍니다. 틀린 자세를 그 자리에서 바로 교정해주어, 혼자서도 개인 레슨을 받는 것처럼 실력을 키울 수 있습니다.",
-    demoHref: undefined,
+    demoHref: "https://kstage.anaiway.com/pose-test",
+    demoExternal: true,
     videoSrc: "/anaiwebhome/movies/6.mov",
     align: "right" as const,
   },
