@@ -166,25 +166,30 @@ export default function ServiceDetail({
 
           {demoHref && (
             <div className="flex justify-end mt-4">
-              {demoExternal ? (
-                <a
-                  href={demoHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
-                >
-                  <span className="group-hover:opacity-0 transition-opacity duration-200">데모 시연하기</span>
-                  <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[#333] font-medium">직접 사용해보기</span>
-                </a>
-              ) : (
-                <Link
-                  href={demoHref}
-                  className="group relative inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
-                >
-                  <span className="group-hover:opacity-0 transition-opacity duration-200">데모 시연하기</span>
-                  <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[#333] font-medium">직접 사용해보기</span>
-                </Link>
-              )}
+              <div className="group relative">
+                {/* Tooltip */}
+                <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-[#333] text-white text-[13px] rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                  직접 사용해보기
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[5px] border-r-[5px] border-t-[5px] border-l-transparent border-r-transparent border-t-[#333]" />
+                </div>
+                {demoExternal ? (
+                  <a
+                    href={demoHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
+                  >
+                    데모 시연하기
+                  </a>
+                ) : (
+                  <Link
+                    href={demoHref}
+                    className="inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
+                  >
+                    데모 시연하기
+                  </Link>
+                )}
+              </div>
             </div>
           )}
         </motion.div>
