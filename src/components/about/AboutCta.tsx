@@ -7,11 +7,6 @@ export default function AboutCta() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
-  const subject = encodeURIComponent("[ANAI] 무료 진단 및 도입 상담 요청");
-  const body = encodeURIComponent(
-    "안녕하세요, ANAI 도입 상담을 문의드립니다.\n\n■ 회사명:\n■ 담당자명:\n■ 연락처:\n■ 관심 분야:\n■ 현재 고민:\n\n"
-  );
-  const mailto = `mailto:contact@anai.kr?subject=${subject}&body=${body}`;
 
   return (
     <section
@@ -70,7 +65,7 @@ export default function AboutCta() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <a
-            href={mailto}
+            href="/#contact"
             className="group inline-flex items-center gap-4 pl-8 pr-4 py-4 lg:pl-10 lg:pr-5 lg:py-5 rounded-full bg-white hover:bg-[#F5F5FF] transition-all duration-300"
             style={{
               boxShadow:
@@ -106,7 +101,7 @@ export default function AboutCta() {
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          버튼을 클릭하시면 이메일 문의 창이 바로 열립니다.
+          버튼을 클릭하시면 상담 문의 섹션으로 이동합니다.
         </motion.p>
       </div>
     </section>

@@ -103,10 +103,10 @@ export default function Contact() {
                   <div className="flex-1">
                     <h4 className="text-[14px] font-semibold text-[#333]">이메일 문의</h4>
                     <p className="text-[12px] text-[#333] opacity-80">24시간 접수</p>
-                    <p className="text-[14px] font-medium text-[#333]">info@packagedesign.co.kr</p>
+                    <p className="text-[14px] font-medium text-[#333]">info@anaiway.com</p>
                   </div>
                   <a
-                    href="mailto:info@packagedesign.co.kr"
+                    href="mailto:info@anaiway.com"
                     className="px-4 py-1.5 rounded-[7px] bg-[#6E7AE2] text-white text-[12px] font-medium text-center hover:bg-[#5B68CF] transition-colors"
                   >
                     메일 보내기
