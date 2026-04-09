@@ -4,9 +4,9 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { name: "홈", href: "#home" },
-  { name: "회사소개", href: "#about" },
-  { name: "상담문의", href: "#contact" },
+  { name: "홈", href: "/#home" },
+  { name: "회사소개", href: "/about" },
+  { name: "상담문의", href: "/#contact" },
 ];
 
 export default function Header() {
@@ -30,7 +30,7 @@ export default function Header() {
       <div className="max-w-[1512px] mx-auto px-6 md:px-12 lg:px-[107px] h-[74px] flex items-center justify-between">
         {/* Logo */}
         <a
-          href="#home"
+          href="/"
           className="flex items-center gap-2"
         >
           <div className={`w-[42px] h-[36px] rounded flex items-center justify-center transition-colors duration-500 ${
