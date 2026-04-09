@@ -7,12 +7,12 @@ const cards = [
   {
     id: "service-01",
     subtitle: "\"어디에 집중해야 할까?\" 고민될 때",
-    title: "AI CRM\n단순 고객 데이터 관리를 넘어서\nAI가 추천,판단하는 세심한 고객 관리",
+    title: "단순 고객 데이터 관리를 넘어서\nAI가 추천,판단하는 세심한 고객 관리",
   },
   {
     id: "service-02",
     subtitle: "피로도에 따른 검사 편차는 그만!",
-    title: "Smart QA\n들쑥날쑥한 불량률,\nAI로 정확하게 자동판독",
+    title: "들쑥날쑥한 불량률,\nAI로 정확하게 자동판독",
   },
   {
     id: "service-03",
