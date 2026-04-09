@@ -167,11 +167,6 @@ export default function ServiceDetail({
           {demoHref && (
             <div className="flex justify-end mt-4">
               <div className="group relative">
-                {/* Tooltip */}
-                <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-[#333] text-white text-[13px] rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-                  직접 사용해보기
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[5px] border-r-[5px] border-t-[5px] border-l-transparent border-r-transparent border-t-[#333]" />
-                </div>
                 {demoExternal ? (
                   <a
                     href={demoHref}
@@ -189,6 +184,15 @@ export default function ServiceDetail({
                     데모 시연하기
                   </Link>
                 )}
+                {/* Tooltip below */}
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2.5 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300 pointer-events-none">
+                  <div className="relative px-4 py-2 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#6366F1] shadow-[0_4px_12px_rgba(59,130,246,0.3)]">
+                    <div className="absolute -top-[5px] left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-[#3B82F6] rotate-45 rounded-[2px]" />
+                    <span className="relative text-white text-[13px] font-medium whitespace-nowrap">
+                      직접 사용해보기
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           )}
