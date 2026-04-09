@@ -165,8 +165,8 @@ export default function ServiceDetail({
           )}
 
           {demoHref && (
-            <div className="flex justify-end mt-4">
-              <div className="group relative">
+            <div className="flex justify-end mt-4 overflow-visible">
+              <div className="group relative inline-flex flex-col items-center">
                 {demoExternal ? (
                   <a
                     href={demoHref}
