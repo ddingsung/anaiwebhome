@@ -171,16 +171,18 @@ export default function ServiceDetail({
                   href={demoHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
+                  className="group relative inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
                 >
-                  데모 시연하기
+                  <span className="group-hover:opacity-0 transition-opacity duration-200">데모 시연하기</span>
+                  <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[#333] font-medium">직접 사용해보기</span>
                 </a>
               ) : (
                 <Link
                   href={demoHref}
-                  className="inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
+                  className="group relative inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
                 >
-                  데모 시연하기
+                  <span className="group-hover:opacity-0 transition-opacity duration-200">데모 시연하기</span>
+                  <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-[#333] font-medium">직접 사용해보기</span>
                 </Link>
               )}
             </div>
