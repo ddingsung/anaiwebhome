@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -33,13 +34,14 @@ export default function Header() {
           href="/"
           className="flex items-center gap-2"
         >
-          <div className={`w-[42px] h-[36px] rounded flex items-center justify-center transition-colors duration-500 ${
-            scrolled ? "bg-[#D9D9D9]" : "bg-[#D9D9D9]"
-          }`}>
-            <span className={`text-[18px] font-semibold transition-colors duration-500 ${
-              scrolled ? "text-black" : "text-black"
-            }`}>로고</span>
-          </div>
+          <Image
+            src="/logo.png"
+            alt="ANAI"
+            width={42}
+            height={42}
+            className="object-contain"
+            priority
+          />
           <span className={`text-[25px] font-medium transition-colors duration-500 ${
             scrolled ? "text-[#111]" : "text-white"
           }`}>

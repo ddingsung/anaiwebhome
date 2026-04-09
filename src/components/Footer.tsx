@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const footerLinks = [
   { name: "회사소개", href: "#about" },
   { name: "가맹안내", href: "#" },
@@ -13,9 +15,13 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="w-[39px] h-[39px] bg-[rgba(51,153,51,0.6)] rounded-md flex items-center justify-center">
-              <span className="text-[#7F7F7F] text-[18px] font-medium">로고</span>
-            </div>
+            <Image
+              src="/logo.png"
+              alt="ANAI"
+              width={42}
+              height={42}
+              className="rounded-md object-contain"
+            />
             <span className="text-white text-[25px] font-bold">아나이</span>
           </div>
 
