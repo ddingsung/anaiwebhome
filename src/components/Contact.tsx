@@ -3,10 +3,43 @@
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mojpzwpz";
+
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError(null);
+    setSubmitting(true);
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        const data = await res.json().catch(() => null);
+        setError(
+          data?.errors?.[0]?.message ??
+            "전송에 실패했습니다. 잠시 후 다시 시도해주세요."
+        );
+      }
+    } catch {
+      setError("네트워크 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <section
@@ -128,13 +161,21 @@ export default function Contact() {
                 </h3>
 
                 {!submitted ? (
-                  <form
-                    className="space-y-4"
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      setSubmitted(true);
-                    }}
-                  >
+                  <form className="space-y-4" onSubmit={handleSubmit}>
+                    {/* Honeypot for spam protection */}
+                    <input
+                      type="text"
+                      name="_gotcha"
+                      style={{ display: "none" }}
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                    <input
+                      type="hidden"
+                      name="_subject"
+                      value="[ANAI] 새로운 상담 문의가 도착했습니다"
+                    />
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {/* Company Name */}
                       <div>
@@ -143,6 +184,7 @@ export default function Contact() {
                         </label>
                         <input
                           type="text"
+                          name="회사명"
                           placeholder="회사명을 입력해주세요"
                           className="w-full px-3 py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[7px] text-[12px] text-[#111] placeholder:text-[#717182] focus:outline-none focus:border-[#6E7AE2] focus:ring-1 focus:ring-[#6E7AE2] transition-colors"
                         />
@@ -154,6 +196,7 @@ export default function Contact() {
                         </label>
                         <input
                           type="text"
+                          name="담당자명"
                           placeholder="담당자명을 입력해주세요"
                           required
                           className="w-full px-3 py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[7px] text-[12px] text-[#111] placeholder:text-[#717182] focus:outline-none focus:border-[#6E7AE2] focus:ring-1 focus:ring-[#6E7AE2] transition-colors"
@@ -169,6 +212,7 @@ export default function Contact() {
                         </label>
                         <input
                           type="tel"
+                          name="연락처"
                           placeholder="연락처를 입력해주세요"
                           required
                           className="w-full px-3 py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[7px] text-[12px] text-[#111] placeholder:text-[#717182] focus:outline-none focus:border-[#6E7AE2] focus:ring-1 focus:ring-[#6E7AE2] transition-colors"
@@ -181,6 +225,7 @@ export default function Contact() {
                         </label>
                         <input
                           type="email"
+                          name="email"
                           placeholder="이메일을 입력해주세요"
                           required
                           className="w-full px-3 py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[7px] text-[12px] text-[#111] placeholder:text-[#717182] focus:outline-none focus:border-[#6E7AE2] focus:ring-1 focus:ring-[#6E7AE2] transition-colors"
@@ -194,18 +239,26 @@ export default function Contact() {
                         상담 내용
                       </label>
                       <textarea
+                        name="상담내용"
                         placeholder="문의하시고자 하는 내용을 남겨주세요."
                         rows={4}
                         className="w-full px-3 py-2 bg-[#F9FAFB] border border-[#E5E7EB] rounded-[7px] text-[12px] text-[#111] placeholder:text-[#717182] focus:outline-none focus:border-[#6E7AE2] focus:ring-1 focus:ring-[#6E7AE2] transition-colors resize-none"
                       />
                     </div>
 
+                    {error && (
+                      <p className="text-[12px] text-red-500 bg-red-50 border border-red-100 rounded-[7px] px-3 py-2">
+                        {error}
+                      </p>
+                    )}
+
                     {/* Submit */}
                     <button
                       type="submit"
-                      className="w-full py-3 bg-[#6E7AE2] text-white text-[15px] font-medium rounded-[7px] hover:bg-[#5B68CF] transition-colors"
+                      disabled={submitting}
+                      className="w-full py-3 bg-[#6E7AE2] text-white text-[15px] font-medium rounded-[7px] hover:bg-[#5B68CF] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                      무료 상담 신청하기
+                      {submitting ? "전송 중..." : "무료 상담 신청하기"}
                     </button>
 
                     <p className="text-center text-[12px] text-[#6A7282]">
