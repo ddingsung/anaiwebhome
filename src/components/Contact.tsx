@@ -37,7 +37,7 @@ export default function Contact() {
                 지금 바로 상담받기
               </h2>
 
-              {/* Phone Card */}
+              {/* KakaoTalk Card */}
               <div
                 className="rounded-[13px] p-6 mb-4"
                 style={{
@@ -47,23 +47,37 @@ export default function Contact() {
                 }}
               >
                 <div className="flex items-center gap-4">
-                  {/* Phone Icon */}
-                  <div className="w-[49px] h-[49px] rounded-[9px] flex items-center justify-center"
-                    style={{ boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.05)" }}>
-                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
-                      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  {/* KakaoTalk Icon */}
+                  <div
+                    className="w-[49px] h-[49px] rounded-[9px] flex items-center justify-center"
+                    style={{
+                      background: "#FEE500",
+                      boxShadow: "0px 4px 15px rgba(254, 229, 0, 0.35)",
+                    }}
+                  >
+                    <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                      <path
+                        d="M13 4C7.477 4 3 7.463 3 11.733c0 2.759 1.866 5.177 4.684 6.544l-.955 3.49c-.084.308.266.556.537.38l4.187-2.764c.513.06 1.036.09 1.547.09 5.523 0 10-3.463 10-7.74C23 7.463 18.523 4 13 4z"
+                        fill="#391B1B"
+                      />
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-[14px] font-semibold text-[#333]">전화 상담</h4>
-                    <p className="text-[12px] text-[#333] opacity-80">평일 09:00-18:00</p>
-                    <p className="text-[14px] font-medium text-[#333]">02-1234-5678</p>
+                    <h4 className="text-[14px] font-semibold text-[#333]">카카오톡 상담</h4>
+                    <p className="text-[12px] text-[#333] opacity-80">
+                      평일 09:00-18:00
+                    </p>
+                    <p className="text-[14px] font-medium text-[#333]">
+                      1:1 실시간 채팅 상담
+                    </p>
                   </div>
                   <a
-                    href="tel:02-1234-5678"
-                    className="px-4 py-1.5 rounded-[7px] bg-[#6E7AE2] text-white text-[12px] font-medium text-center hover:bg-[#5B68CF] transition-colors"
+                    href="https://pf.kakao.com/_JHxidX"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-1.5 rounded-[7px] bg-[#FEE500] text-[#391B1B] text-[12px] font-semibold text-center hover:bg-[#F5DC00] transition-colors"
                   >
-                    전화하기
+                    채팅하기
                   </a>
                 </div>
               </div>
