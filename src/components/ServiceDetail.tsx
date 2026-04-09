@@ -165,8 +165,8 @@ export default function ServiceDetail({
           )}
 
           {demoHref && (
-            <div className="flex justify-end mt-4 overflow-visible">
-              <div className="group relative inline-flex flex-col items-center">
+            <div className="flex justify-end mt-4">
+              <div className="group flex flex-col items-center gap-2.5">
                 {demoExternal ? (
                   <a
                     href={demoHref}
@@ -185,10 +185,10 @@ export default function ServiceDetail({
                   </Link>
                 )}
                 {/* Tooltip below */}
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2.5 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300 pointer-events-none">
-                  <div className="relative px-4 py-2 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#6366F1] shadow-[0_4px_12px_rgba(59,130,246,0.3)]">
-                    <div className="absolute -top-[5px] left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-[#3B82F6] rotate-45 rounded-[2px]" />
-                    <span className="relative text-white text-[13px] font-medium whitespace-nowrap">
+                <div className="flex flex-col items-center opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300 pointer-events-none">
+                  <div className="w-2.5 h-2.5 bg-[#3B82F6] rotate-45 rounded-[2px] -mb-[5px]" />
+                  <div className="px-4 py-2 rounded-full bg-gradient-to-r from-[#3B82F6] to-[#6366F1] shadow-[0_4px_12px_rgba(59,130,246,0.3)]">
+                    <span className="text-white text-[13px] font-medium whitespace-nowrap">
                       직접 사용해보기
                     </span>
                   </div>
