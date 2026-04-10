@@ -2,16 +2,17 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ANAI - 어제보다 오늘 더, 마음 놓이는 현장을 만듭니다",
+  title: "ANAI - Beyond Recording, Toward Decision Making",
   description:
-    "제조 현장의 번거로움을 기술로 해결합니다. AI 비전 품질 검수, 설비 예지 보전, 동선 최적화, 지능형 문서 자동화로 현장의 본질적 가치에 집중할 수 있게 돕습니다.",
+    "기록하는 시스템에서 판단하는 시스템으로, 비즈니스의 '다음 수'를 제시합니다",
   openGraph: {
-    title: "ANAI - 어제보다 오늘 더, 마음 놓이는 현장을 만듭니다",
+    title: "ANAI - Beyond Recording, Toward Decision Making",
     description:
-      "제조 현장의 번거로움을 기술로 해결합니다. AI 비전 품질 검수, 설비 예지 보전, 동선 최적화, 지능형 문서 자동화.",
+      "기록하는 시스템에서 판단하는 시스템으로, 비즈니스의 '다음 수'를 제시합니다",
     type: "website",
   },
-  keywords: "제조 AI, 스마트 팩토리, 품질 검수, 설비 예지 보전, 공정 최적화",
+  keywords:
+    "ANAI, AI CRM, Smart QA, 자동화 어노테이션, Smart Logistics, 지능형 문서 처리, K-STAGE",
 };
 
 export default function RootLayout({
