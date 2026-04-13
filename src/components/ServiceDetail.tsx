@@ -57,71 +57,92 @@ export default function ServiceDetail({
         >
           {/* Problem Card — left aligned, z-20 (top layer) */}
           <div
-            className="relative z-20 w-full lg:w-[80%] rounded-[20px] p-8 lg:p-10 lg:pb-24 lg:pr-24"
+            className="relative z-20 w-full lg:w-[80%] rounded-[30px] p-8 lg:p-10 lg:pb-24 lg:pr-24"
             style={{
-              background: "rgba(255, 255, 255, 0.95)",
-              border: "0.5px solid rgba(0,0,0,0.06)",
-              boxShadow: "0px 15px 40px rgba(0, 0, 0, 0.08)",
+              background: "#809BF6",
+              border: "0.5px solid #FFFFFF",
+              boxShadow: "0px 10px 40px rgba(0, 0, 0, 0.05)",
             }}
           >
-            {/* Emoji + Blue bubble row */}
+            {/* Emoji + bubble row */}
             <div className="flex items-center gap-3 mb-6">
-              <span className="text-[36px] lg:text-[42px] flex-shrink-0">🤷‍♀️</span>
+              <span className="text-[42px] lg:text-[50px] flex-shrink-0">🤷‍♀️</span>
               <div className="relative">
                 <div
-                  className="rounded-[20px] px-5 py-3 lg:px-6 lg:py-3.5"
-                  style={{ background: "#5C72C4" }}
+                  className="rounded-[10px] px-5 py-3.5 lg:px-7 lg:py-4 bg-white border border-black"
                 >
-                  <span className="text-[14px] lg:text-[17px] text-white font-medium whitespace-nowrap">
+                  <span className="text-[16px] lg:text-[20px] font-medium whitespace-nowrap" style={{ color: "#809BF6" }}>
                     어떤 불편함을 해결하나요?
                   </span>
                 </div>
-                {/* Bubble tail pointing left toward emoji */}
+                {/* Bubble tail pointing left */}
                 <div
-                  className="absolute -left-[6px] top-1/2 -translate-y-1/2 w-0 h-0"
+                  className="absolute -left-[8px] top-1/2 -translate-y-1/2"
                   style={{
-                    borderTop: "8px solid transparent",
-                    borderBottom: "8px solid transparent",
-                    borderRight: "10px solid #5C72C4",
+                    width: 0,
+                    height: 0,
+                    borderTop: "10px solid transparent",
+                    borderBottom: "10px solid transparent",
+                    borderRight: "12px solid #000",
+                  }}
+                />
+                <div
+                  className="absolute -left-[6px] top-1/2 -translate-y-1/2"
+                  style={{
+                    width: 0,
+                    height: 0,
+                    borderTop: "9px solid transparent",
+                    borderBottom: "9px solid transparent",
+                    borderRight: "11px solid #FFFFFF",
                   }}
                 />
               </div>
             </div>
 
             {/* Problem text */}
-            <p className="text-[15px] lg:text-[18px] leading-[1.7] text-[#333]">
+            <p className="text-[16px] lg:text-[20px] leading-[1.4] text-white">
               {problem}
             </p>
           </div>
 
           {/* Solution Card — right aligned, z-10 (bottom layer), overlaps behind problem card */}
           <div
-            className="relative z-10 w-full lg:w-[80%] self-end -mt-6 lg:-mt-[80px] rounded-[20px] p-8 lg:p-10 lg:pt-24 lg:pl-24"
+            className="relative z-10 w-full lg:w-[80%] self-end -mt-6 lg:-mt-[80px] rounded-[30px] p-8 lg:p-10 lg:pt-24 lg:pl-24"
             style={{
-              background: "rgba(255, 255, 255, 0.85)",
-              border: "0.5px solid rgba(0,0,0,0.06)",
+              background: "#438AED",
+              border: "0.5px solid #FFFFFF",
               boxShadow: "0px 10px 40px rgba(0, 0, 0, 0.05)",
-              backdropFilter: "blur(10px)",
             }}
           >
-            {/* Purple bubble + Anai badge row (right-aligned) */}
+            {/* Bubble + Anai badge row (right-aligned) */}
             <div className="flex items-center justify-end gap-3 mb-6">
               <div className="relative">
                 <div
-                  className="rounded-[20px] px-5 py-3 lg:px-6 lg:py-3.5"
-                  style={{ background: "#5D4B7A" }}
+                  className="rounded-[10px] px-5 py-3.5 lg:px-7 lg:py-4 bg-white border border-black"
                 >
-                  <span className="text-[14px] lg:text-[17px] text-white font-medium whitespace-nowrap">
+                  <span className="text-[16px] lg:text-[20px] font-medium whitespace-nowrap" style={{ color: "#438AED" }}>
                     무엇이 바뀌나요?
                   </span>
                 </div>
-                {/* Bubble tail pointing right toward 아나이 */}
+                {/* Bubble tail pointing right */}
                 <div
-                  className="absolute -right-[6px] top-1/2 -translate-y-1/2 w-0 h-0"
+                  className="absolute -right-[8px] top-1/2 -translate-y-1/2"
                   style={{
-                    borderTop: "8px solid transparent",
-                    borderBottom: "8px solid transparent",
-                    borderLeft: "10px solid #5D4B7A",
+                    width: 0,
+                    height: 0,
+                    borderTop: "10px solid transparent",
+                    borderBottom: "10px solid transparent",
+                    borderLeft: "12px solid #000",
+                  }}
+                />
+                <div
+                  className="absolute -right-[6px] top-1/2 -translate-y-1/2"
+                  style={{
+                    width: 0,
+                    height: 0,
+                    borderTop: "9px solid transparent",
+                    borderBottom: "9px solid transparent",
+                    borderLeft: "11px solid #FFFFFF",
                   }}
                 />
               </div>
@@ -129,14 +150,15 @@ export default function ServiceDetail({
               <Image
                 src="/logo.png"
                 alt="ANAI"
-                width={60}
-                height={60}
-                className="flex-shrink-0 w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] rounded-[10px] object-contain border shadow-sm"
+                width={78}
+                height={82}
+                className="flex-shrink-0 w-[60px] h-[65px] lg:w-[78px] lg:h-[82px] rounded-[10px] object-contain bg-white"
+                style={{ boxShadow: "4px 4px 4px 1px rgba(0, 0, 0, 0.08)" }}
               />
             </div>
 
             {/* Solution text */}
-            <p className="text-[15px] lg:text-[18px] leading-[1.7] text-[#333] text-right">
+            <p className="text-[16px] lg:text-[20px] leading-[1.4] text-white text-right">
               {solution}
             </p>
           </div>
