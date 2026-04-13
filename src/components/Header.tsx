@@ -42,7 +42,7 @@ export default function Header() {
             className="object-contain rounded-[10px]"
             priority
           />
-          <span className={`text-[25px] font-medium transition-colors duration-500 ml-1 ${
+          <span className={`text-[25px] font-medium transition-colors duration-500 ml-[11px] ${
             scrolled ? "text-[#111]" : "text-white"
           }`}>
             Anai

@@ -146,12 +146,12 @@ export default function ServiceDetail({
 
         {/* Demo section */}
         <motion.div
-          className="mt-16 lg:mt-24"
+          className="mt-[70px]"
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <span className="block text-[22px] lg:text-[28px] font-normal text-black mb-6 text-center">
+          <span className="block text-[22px] lg:text-[28px] font-normal text-black mb-[30px] text-center">
             데모영상
           </span>
 
@@ -173,7 +173,7 @@ export default function ServiceDetail({
           )}
 
           {demoHref && (
-            <div className="flex justify-center mt-6">
+            <div className="flex justify-center mt-[60px]">
               <div className="group flex flex-col items-center gap-2.5">
                 {demoExternal ? (
                   <a
