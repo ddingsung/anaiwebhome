@@ -39,10 +39,10 @@ export default function Header() {
             alt="ANAI"
             width={42}
             height={42}
-            className="object-contain"
+            className="object-contain rounded-[10px]"
             priority
           />
-          <span className={`text-[25px] font-medium transition-colors duration-500 ${
+          <span className={`text-[25px] font-medium transition-colors duration-500 ml-1 ${
             scrolled ? "text-[#111]" : "text-white"
           }`}>
             Anai

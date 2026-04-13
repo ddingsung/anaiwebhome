@@ -108,7 +108,7 @@ export default function Contact() {
                     href="https://pf.kakao.com/_JHxidX"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-1.5 rounded-[7px] bg-[#FEE500] text-[#391B1B] text-[12px] font-semibold text-center hover:bg-[#F5DC00] transition-colors"
+                    className="w-[80px] py-1.5 rounded-[7px] bg-[#FEE500] text-[#391B1B] text-[12px] font-semibold text-center hover:bg-[#F5DC00] transition-colors"
                   >
                     채팅하기
                   </a>
@@ -140,7 +140,7 @@ export default function Contact() {
                   </div>
                   <a
                     href="mailto:info@anaiway.com"
-                    className="px-4 py-1.5 rounded-[7px] bg-[#6E7AE2] text-white text-[12px] font-medium text-center hover:bg-[#5B68CF] transition-colors"
+                    className="w-[80px] py-1.5 rounded-[7px] bg-[#6E7AE2] text-white text-[12px] font-medium text-center hover:bg-[#5B68CF] transition-colors"
                   >
                     메일 보내기
                   </a>

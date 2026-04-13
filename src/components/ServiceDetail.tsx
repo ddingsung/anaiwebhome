@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 
@@ -124,12 +125,14 @@ export default function ServiceDetail({
                   }}
                 />
               </div>
-              {/* Anai badge */}
-              <div className="flex-shrink-0 w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] bg-white border shadow-sm rounded-[12px] flex items-center justify-center">
-                <span className="text-[15px] lg:text-[17px] font-bold text-[#333]">
-                  아나이
-                </span>
-              </div>
+              {/* Anai logo */}
+              <Image
+                src="/logo.png"
+                alt="ANAI"
+                width={60}
+                height={60}
+                className="flex-shrink-0 w-[50px] h-[50px] lg:w-[60px] lg:h-[60px] rounded-[10px] object-contain border shadow-sm"
+              />
             </div>
 
             {/* Solution text */}
@@ -141,7 +144,7 @@ export default function ServiceDetail({
 
         {/* Demo section */}
         <motion.div
-          className="mt-10 lg:mt-14"
+          className="mt-16 lg:mt-24"
           initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
@@ -168,21 +171,21 @@ export default function ServiceDetail({
           )}
 
           {demoHref && (
-            <div className="flex justify-end mt-4">
+            <div className="flex justify-center mt-6">
               <div className="group flex flex-col items-center gap-2.5">
                 {demoExternal ? (
                   <a
                     href={demoHref}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
+                    className="inline-flex items-center justify-center w-[192px] h-[60px] rounded-full bg-[#7BB5E2] border border-[#AAC5FF] text-white text-[20px] font-medium hover:bg-[#6AA4D1] transition-colors"
                   >
                     데모 시연하기
                   </a>
                 ) : (
                   <Link
                     href={demoHref}
-                    className="inline-flex items-center justify-center px-7 py-3 rounded-[10px] bg-white border border-[#333] text-[16px] lg:text-[18px] text-[#333] hover:bg-gray-50 transition-colors"
+                    className="inline-flex items-center justify-center w-[192px] h-[60px] rounded-full bg-[#7BB5E2] border border-[#AAC5FF] text-white text-[20px] font-medium hover:bg-[#6AA4D1] transition-colors"
                   >
                     데모 시연하기
                   </Link>
