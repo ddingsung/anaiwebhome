@@ -57,7 +57,7 @@ export default function ServiceDetail({
         >
           {/* Problem Card — left aligned, z-20 (top layer) */}
           <div
-            className="relative z-20 w-full lg:w-[55%] rounded-[30px] p-8 lg:p-10 lg:pb-20 lg:pr-16"
+            className="relative z-20 w-full lg:w-[80%] rounded-[30px] p-8 lg:p-10 lg:pb-12 lg:pr-24"
             style={{
               background: "#809BF6",
               border: "0.5px solid #FFFFFF",
@@ -97,7 +97,7 @@ export default function ServiceDetail({
 
           {/* Solution Card — right aligned, z-10 (bottom layer), overlaps behind problem card */}
           <div
-            className="relative z-10 w-full lg:w-[68%] self-end -mt-6 lg:-mt-[60px] rounded-[30px] p-8 lg:p-10 lg:pt-20 lg:pl-16"
+            className="relative z-10 w-full lg:w-[80%] self-end -mt-6 lg:-mt-[80px] rounded-[30px] p-8 lg:p-10 lg:pt-24 lg:pl-24"
             style={{
               background: "#438AED",
               border: "0.5px solid #FFFFFF",
