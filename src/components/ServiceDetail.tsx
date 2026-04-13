@@ -57,7 +57,7 @@ export default function ServiceDetail({
         >
           {/* Problem Card — left aligned, z-20 (top layer) */}
           <div
-            className="relative z-20 w-full lg:w-[80%] rounded-[30px] p-8 lg:p-10 lg:pb-24 lg:pr-24"
+            className="relative z-20 w-full lg:w-[55%] rounded-[30px] p-8 lg:p-10 lg:pb-20 lg:pr-16"
             style={{
               background: "#809BF6",
               border: "0.5px solid #FFFFFF",
@@ -69,23 +69,13 @@ export default function ServiceDetail({
               <span className="text-[42px] lg:text-[50px] flex-shrink-0">🤷‍♀️</span>
               <div className="relative">
                 <div
-                  className="rounded-[10px] px-5 py-3.5 lg:px-7 lg:py-4 bg-white border border-black"
+                  className="rounded-[10px] px-5 py-3.5 lg:px-7 lg:py-4 bg-white"
                 >
                   <span className="text-[16px] lg:text-[20px] font-medium whitespace-nowrap" style={{ color: "#809BF6" }}>
                     어떤 불편함을 해결하나요?
                   </span>
                 </div>
                 {/* Bubble tail pointing left */}
-                <div
-                  className="absolute -left-[8px] top-1/2 -translate-y-1/2"
-                  style={{
-                    width: 0,
-                    height: 0,
-                    borderTop: "10px solid transparent",
-                    borderBottom: "10px solid transparent",
-                    borderRight: "12px solid #000",
-                  }}
-                />
                 <div
                   className="absolute -left-[6px] top-1/2 -translate-y-1/2"
                   style={{
@@ -107,7 +97,7 @@ export default function ServiceDetail({
 
           {/* Solution Card — right aligned, z-10 (bottom layer), overlaps behind problem card */}
           <div
-            className="relative z-10 w-full lg:w-[80%] self-end -mt-6 lg:-mt-[80px] rounded-[30px] p-8 lg:p-10 lg:pt-24 lg:pl-24"
+            className="relative z-10 w-full lg:w-[68%] self-end -mt-6 lg:-mt-[60px] rounded-[30px] p-8 lg:p-10 lg:pt-20 lg:pl-16"
             style={{
               background: "#438AED",
               border: "0.5px solid #FFFFFF",
@@ -118,23 +108,13 @@ export default function ServiceDetail({
             <div className="flex items-center justify-end gap-3 mb-6">
               <div className="relative">
                 <div
-                  className="rounded-[10px] px-5 py-3.5 lg:px-7 lg:py-4 bg-white border border-black"
+                  className="rounded-[10px] px-5 py-3.5 lg:px-7 lg:py-4 bg-white"
                 >
                   <span className="text-[16px] lg:text-[20px] font-medium whitespace-nowrap" style={{ color: "#438AED" }}>
                     무엇이 바뀌나요?
                   </span>
                 </div>
                 {/* Bubble tail pointing right */}
-                <div
-                  className="absolute -right-[8px] top-1/2 -translate-y-1/2"
-                  style={{
-                    width: 0,
-                    height: 0,
-                    borderTop: "10px solid transparent",
-                    borderBottom: "10px solid transparent",
-                    borderLeft: "12px solid #000",
-                  }}
-                />
                 <div
                   className="absolute -right-[6px] top-1/2 -translate-y-1/2"
                   style={{
